@@ -1,0 +1,713 @@
+<title>Groeiwijs — kinder- &amp; jongerencoaching en huiswerkbegeleiding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+
+<style>
+  /* ══════════════════════════════════════════════════════════════
+     Kleuren en vormen komen rechtstreeks uit de flyer
+     (607110_CARLINE_REYND_Groeiwijs_A6_Flyer_V3).
+     ══════════════════════════════════════════════════════════════ */
+  :root {
+    --navy:       #0A40A0;
+    --navy-deep:  #061D69;
+    --red:        #E22123;
+    --pink:       #F18FAE;
+    --pink-soft:  #F9CFCE;
+    --pink-wash:  #FCE7E6;
+    --paper:      #FFFFFF;
+    --ink:        #061D69;
+    --ink-soft:   #3A5286;
+
+    --display: "Poppins", "Trebuchet MS", system-ui, sans-serif;
+
+    --checker:  14px;   /* zijde van één blokje in het dambordpatroon */
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { margin: 0; line-height: 1.15; text-wrap: balance; letter-spacing: -.01em; }
+  p  { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  a  { color: inherit; }
+  img { max-width: 100%; }
+
+  :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { width: 100%; max-width: 44rem; margin: 0 auto; padding-inline: 1.25rem; }
+
+  /* ── Dambord ─────────────────────────────────────────── */
+  .checker {
+    background-image:
+      conic-gradient(var(--red) 25%, var(--pink-soft) 0 50%,
+                     var(--red) 0 75%, var(--pink-soft) 0);
+    background-size: calc(var(--checker) * 2) calc(var(--checker) * 2);
+  }
+
+  /* ══ HERO — de voorkant van de flyer ═════════════════════ */
+  .hero {
+    position: relative;
+    padding: var(--checker);
+    overflow: hidden;
+  }
+  /* op breed scherm wordt de hero een gecentreerde flyer, geen behang */
+  @media (min-width: 860px) {
+    .hero {
+      max-width: 48rem;
+      margin: 2.25rem auto 0;
+      padding: calc(var(--checker) * 1.25);
+    }
+    .hero-inner { padding: 3rem 2.5rem 9rem; }
+  }
+  .hero-inner {
+    position: relative;
+    background: var(--paper);
+    padding: 2.5rem 1.25rem 9.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.1rem;
+    overflow: hidden;
+  }
+  /* de blauwe golf linksonder, zoals op de flyer: de vorm, het witte
+     hartje erin en de spetters ernaast schalen als één tekening mee */
+  .golfvorm {
+    position: absolute;
+    left: 0; bottom: 0;
+    z-index: 2;                 /* tot in de hoek, over het dambord heen */
+    height: clamp(7rem, 28vw, 9rem);
+    width: auto;
+    color: var(--navy);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-inner > * { position: relative; z-index: 1; max-width: 32rem; }
+  .hero-inner > .badge { max-width: none; }
+
+  .kompas-doos { position: relative; width: min(46vw, 13.5rem); }
+  .kompas { display: block; width: 100%; height: auto; }
+  .kompas-doos .fig { position: absolute; }
+  /* zelfde plek als op de flyer: net naast de ring, rechtsboven */
+  .fig-kompas-pop { left: 89%; top: 12.4%; width: 17%; }
+
+  .woordmerk { width: min(86%, 26rem); height: auto; margin-top: -.35rem; }
+  h1 { margin: 0; font-size: 0; }          /* de tekst zit in de alt van het woordmerk */
+
+  /* het roze lint met de twee diensten */
+  .lint {
+    background: var(--pink);
+    color: var(--navy-deep);
+    font-weight: 700;
+    font-size: clamp(.95rem, 3.6vw, 1.1rem);
+    line-height: 1.35;
+    padding: .7rem 1.6rem;
+    clip-path: polygon(0 8%, 50% 0, 100% 8%, 100% 92%, 50% 100%, 0 92%);
+    max-width: 24rem;
+  }
+
+  .golfje { width: 5.5rem; height: .75rem; display: block; color: var(--navy); }
+
+  .pay-off {
+    font-size: clamp(1rem, 4vw, 1.15rem);
+    font-weight: 500;
+    color: var(--ink-soft);
+    max-width: 30ch;
+  }
+
+  /* de rode stervormige badge */
+  .badge {
+    position: absolute;
+    right: 1rem; bottom: 1.4rem;
+    width: clamp(7rem, 26vw, 8.75rem);
+    aspect-ratio: 1;
+    background: var(--red);
+    color: #fff;
+    clip-path: polygon(50.00% 0.00%, 59.12% 10.03%, 71.69% 4.95%, 75.56% 17.94%, 89.09% 18.83%, 86.94% 32.21%, 98.75% 38.87%, 91.00% 50.00%, 98.75% 61.13%, 86.94% 67.79%, 89.09% 81.17%, 75.56% 82.06%, 71.69% 95.05%, 59.12% 89.97%, 50.00% 100.00%, 40.88% 89.97%, 28.31% 95.05%, 24.44% 82.06%, 10.91% 81.17%, 13.06% 67.79%, 1.25% 61.13%, 9.00% 50.00%, 1.25% 38.87%, 13.06% 32.21%, 10.91% 18.83%, 24.44% 17.94%, 28.31% 4.95%, 40.88% 10.03%);
+    display: grid;
+    place-items: center;
+    padding: 1.1rem;
+    font-weight: 800;
+    font-size: clamp(.72rem, 2.5vw, .85rem);
+    line-height: 1.25;
+    text-transform: lowercase;
+    rotate: -6deg;
+  }
+
+  /* ── Algemene secties ────────────────────────────────── */
+  section { padding: 2.75rem 0; position: relative; overflow: hidden; }
+  section .wrap { display: flex; flex-direction: column; gap: 1.35rem; position: relative; z-index: 1; }
+
+  .eyebrow {
+    font-size: .74rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  h2 { font-size: clamp(1.45rem, 5.4vw, 1.9rem); font-weight: 800; }
+  h3 { font-size: 1.05rem; font-weight: 700; }
+
+  .lead { font-size: 1.1rem; font-weight: 500; }
+  .zacht { color: var(--ink-soft); }
+
+  /* ── Intro ───────────────────────────────────────────── */
+  #intro { background: var(--pink-wash); }
+  #intro .wrap { gap: 1rem; }
+
+  /* ── Aanbod: de twee roze kaarten van de flyer ───────── */
+  .aanbod { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .dienst {
+    background: var(--pink-wash);
+    border-radius: 1.25rem;
+    padding: 1.4rem 1.35rem 1.5rem;
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    gap: .35rem 1.1rem;
+    align-items: start;
+  }
+  @media (max-width: 460px) {
+    .dienst { grid-template-columns: 1fr; gap: .8rem; }
+  }
+  .bolletje {
+    grid-row: span 2;
+    width: 3.5rem; height: 3.5rem;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: #fff;
+  }
+  .bolletje--navy { background: var(--navy); }
+  .bolletje--red  { background: var(--red); }
+  .bolletje svg { width: 1.9rem; height: 1.9rem; }
+
+  .dienst h3 {
+    color: var(--red);
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .005em;
+  }
+  .dienst h3 + .kronkel { margin: .35rem 0 .75rem; }
+  .kronkel { display: block; width: 8.5rem; height: .6rem; color: var(--red); }
+  .dienst-body { grid-column: 2; display: flex; flex-direction: column; gap: .8rem; }
+  @media (max-width: 460px) { .dienst-body { grid-column: 1; } }
+
+  ul.punten { display: flex; flex-direction: column; gap: .4rem; }
+  ul.punten li {
+    display: grid;
+    grid-template-columns: 1.35rem 1fr;
+    gap: .55rem;
+    align-items: start;
+    font-size: 1rem;
+  }
+  ul.punten li::before {
+    content: "";
+    width: .55rem; height: .55rem;
+    margin-top: .5rem;
+    border-radius: 50%;
+    background: var(--pink);
+  }
+  .dienst--coaching ul.punten li::before { background: var(--navy); }
+
+  /* een lijstje met sprankels in plaats van bolletjes */
+  ul.punten--sprankel li::before { display: none; }
+  .sprankeltje { width: 1rem; height: auto; margin-top: .3rem; color: var(--pink); }
+
+  .tussenkop { font-weight: 800; font-size: 1.05rem; color: var(--navy); }
+
+  .citaat {
+    margin: 0;
+    border-left: 3px solid var(--pink);
+    padding-left: .9rem;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+  }
+  .citaat p    { font-weight: 600; font-size: 1.05rem; color: var(--navy); }
+  .citaat cite { font-style: normal; font-weight: 600; font-size: .9rem; color: var(--ink-soft); }
+  .citaat cite::before { content: "— "; }
+
+  .prijs {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .4rem;
+    align-self: flex-start;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 2rem;
+    padding: .35rem 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .prijs small { font-weight: 500; font-size: .85rem; opacity: .85; }
+
+  /* ── De blauwe spetter met het citaat ────────────────── */
+  .spetter {
+    margin: 0 auto;
+    width: min(22rem, 88vw);
+    aspect-ratio: 1;
+    background: var(--navy);
+    color: #fff;
+    clip-path: polygon(53.00% 0.09%, 60.34% 6.72%, 69.89% 4.13%, 74.52% 12.87%, 84.38% 13.69%, 85.74% 23.49%, 94.72% 27.64%, 92.65% 37.31%, 99.67% 44.29%, 94.42% 52.67%, 98.63% 61.62%, 90.83% 67.70%, 91.72% 77.55%, 82.31% 80.60%, 79.78% 90.16%, 69.90% 89.80%, 64.25% 97.93%, 55.09% 94.21%, 47.00% 99.91%, 39.66% 93.28%, 30.11% 95.87%, 25.48% 87.13%, 15.62% 86.31%, 14.26% 76.51%, 5.28% 72.36%, 7.35% 62.69%, 0.33% 55.71%, 5.58% 47.33%, 1.37% 38.38%, 9.17% 32.30%, 8.28% 22.45%, 17.69% 19.40%, 20.22% 9.84%, 30.10% 10.20%, 35.75% 2.07%, 44.91% 5.79%);
+    display: grid;
+    place-items: center;
+    padding: clamp(2.75rem, 12vw, 4rem) clamp(2.25rem, 9.5vw, 3.25rem);
+    text-align: center;
+    rotate: -3deg;
+  }
+  .spetter p {
+    font-weight: 800;
+    font-size: clamp(1.05rem, 4.6vw, 1.3rem);
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+  .spetter .hartje { display: block; margin: .6rem auto 0; width: 1.4rem; color: var(--red); }
+
+  /* ── Kennismaken ─────────────────────────────────────── */
+  #kennismaken { background: var(--pink-wash); }
+  .manieren { display: grid; gap: .75rem; }
+  @media (min-width: 620px) { .manieren { grid-template-columns: repeat(3, 1fr); } }
+  .manier {
+    background: var(--paper);
+    border-radius: .9rem;
+    padding: 1rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    font-weight: 600;
+  }
+  .manier svg { width: 1.4rem; height: 1.4rem; color: var(--red); flex: none; }
+
+  .slot {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 1.1rem;
+    padding: 1.35rem 1.4rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  /* ── Contact: de blauwe onderkant van de flyer ───────── */
+  .overgang {
+    height: calc(var(--checker) * 3);
+    mask-image: linear-gradient(to bottom, transparent, #000 85%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 85%);
+  }
+  #contact {
+    background: var(--navy);
+    color: #fff;
+    padding: 2.5rem 0 2.75rem;
+  }
+  #contact .eyebrow { color: var(--pink); }
+  #contact h2 { font-size: clamp(1.5rem, 6vw, 2rem); text-transform: uppercase; letter-spacing: .01em; }
+  .gegevens { display: flex; flex-direction: column; gap: .9rem; }
+  .gegeven { display: flex; align-items: center; gap: .85rem; font-size: 1.05rem; font-weight: 600; }
+  .gegeven svg { width: 1.35rem; height: 1.35rem; color: var(--pink); flex: none; }
+  .gegeven a { text-decoration-color: rgba(255,255,255,.4); text-underline-offset: 3px; }
+  .gegeven a:hover { text-decoration-color: #fff; }
+
+  .knoppen { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: .4rem; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    flex: 1 1 11rem;
+    min-height: 3rem;
+    padding: .7rem 1.2rem;
+    border-radius: 2rem;
+    border: 2px solid var(--red);
+    background: var(--red);
+    color: #fff;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .12s ease, background-color .12s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn--licht { background: transparent; border-color: rgba(255,255,255,.55); }
+  .btn--licht:hover { background: rgba(255,255,255,.12); }
+
+  /* de blauwe voet loopt door tot onder de vaste belbalk */
+  footer { background: var(--navy); color: rgba(255,255,255,.65); padding: 0 0 7.25rem; font-size: .85rem; }
+  @media (min-width: 760px) { footer { padding-bottom: 2rem; } }
+  footer .wrap { display: flex; flex-direction: column; gap: .3rem; }
+
+  /* ── Vaste belbalk: deze pagina wordt van een QR gescand ─ */
+  .belbalk {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 10;
+    background: var(--paper);
+    border-top: 3px solid var(--pink-soft);
+    padding: .65rem 1rem calc(.65rem + env(safe-area-inset-bottom));
+    display: flex;
+    gap: .55rem;
+    box-shadow: 0 -10px 26px -20px rgba(6,29,105,.8);
+  }
+  .belbalk .btn--licht { border-color: var(--navy); color: var(--navy); }
+  .belbalk .btn--licht:hover { background: var(--pink-wash); }
+  @media (min-width: 760px) { .belbalk { display: none; } }
+
+
+  /* ══ FIGUURTJES — de losse tekeningetjes van de flyer ════ */
+  .figuren { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+  .fig {
+    position: absolute;
+    display: block;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .fig--ster, .fig--sprankel { aspect-ratio: 1; }
+  .fig--pop     { aspect-ratio: 73 / 74; }
+  .fig--hart    { aspect-ratio: 24 / 22; }
+  .fig--golf    { aspect-ratio: 312 / 168; }
+
+  .navy { color: var(--navy); }
+  .rood { color: var(--red); }
+  .roze { color: var(--pink); }
+  .wit  { color: #fff; }
+
+  /* ── Trapjes: het dambord dat de hoek in stapjes uitloopt ─ */
+  .trapje {
+    position: absolute;
+    width: clamp(3.25rem, 13vw, 5rem);
+    aspect-ratio: 1;
+    background-size: 40% 40%;          /* 5 blokjes breed, 5 hoog */
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 80% 20%, 80% 40%, 60% 40%,
+                       60% 60%, 40% 60%, 40% 80%, 20% 80%, 20% 100%, 0 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .trapje--rechtsboven { transform: scaleX(-1); }
+  .trapje--linksonder  { transform: scaleY(-1); }
+  .trapje--rechtsonder { transform: scale(-1); }
+  /* halverwege een rand loopt het dambord in een punt uit */
+  .trapje--punt {
+    width: clamp(1.6rem, 7.5vw, 3.6rem);
+    clip-path: polygon(0 0, 20% 0, 20% 20%, 40% 20%, 40% 40%, 60% 40%,
+                       60% 60%, 40% 60%, 40% 80%, 20% 80%, 20% 100%, 0 100%);
+    top: 50%;
+    translate: 0 -50%;
+  }
+  .trapje--punt-rechts { transform: scaleX(-1); }
+
+  /* ── In de hero ──────────────────────────────────────── */
+  .hero-inner .fig,
+  .hero-inner .trapje { position: absolute; max-width: none; z-index: 0; }
+
+  .fig-hero-ster     { left: 6%;  top: 14%;  width: clamp(1.6rem, 6vw, 2.4rem); }
+  /* en het sterretje vlak boven het trapje halverwege rechts */
+  .fig-hero-sprankel { right: 1.2%; top: calc(50% - 4.6rem); width: clamp(1.6rem, 5.8vw, 2.6rem); }
+  /* vlak boven het trapje halverwege links, in dezelfde marge */
+  .fig-hero-golf     { left: 1.2%; top: calc(50% - 4.2rem); width: clamp(1.9rem, 6.5vw, 3.4rem); }
+
+  .trapje--hero-links  { top: 0; left: 0; }
+  .trapje--hero-rechts { top: 0; right: 0; }
+  .trapje--hero-midlinks  { left: 0; }
+  .trapje--hero-midrechts { right: 0; }
+  /* achter de badge door, net als op de flyer */
+  .trapje--hero-rechtsonder { right: 0; bottom: 0; width: clamp(5rem, 20vw, 7.5rem); }
+
+
+  /* het hartje onderin de rode badge, net als op de flyer */
+  .badge { gap: .35rem; }
+  .badge .hartje-badge { width: .95rem; height: auto; opacity: .9; }
+
+  /* ── In de secties ───────────────────────────────────── */
+  /* .wrap is 44rem breed; de figuurtjes blijven er vlak naast hangen,
+     ook op een breed scherm — anders zweven ze aan de schermrand. */
+  section {
+    --naast-tekst: max(1.25rem, calc(50% - 24.75rem));
+    --naast-hoek:  max(0rem,    calc(50% - 26rem));
+  }
+
+  .trapje--intro  { right: var(--naast-hoek); bottom: 0; }
+  .trapje--kennis { left:  var(--naast-hoek); top: 0; }
+
+  .fig-intro-sprankel   { right: var(--naast-tekst); top: 1.7rem;    width: 2.1rem; }
+  .fig-aanbod-ster      { right: var(--naast-tekst); top: 2.6rem;    width: 2.3rem; }
+  .fig-aanbod-golf      { left:  var(--naast-tekst); bottom: 3.5rem; width: 3rem; }
+  .fig-kennis-hart      { right: var(--naast-tekst); top: 2.3rem;    width: 1.9rem; }
+  .fig-contact-sprankel { right: var(--naast-tekst); top: 1.9rem;    width: 2.2rem; }
+  .fig-contact-stipjes  { left:  var(--naast-tekst); bottom: 1.7rem; width: 2.4rem; aspect-ratio: 24 / 8; }
+
+  /* op een telefoon is er enkel plaats voor de hoekjes */
+  @media (max-width: 760px) {
+    .fig--wijd { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<!-- ══ FIGUURTJES — één keer getekend, overal opnieuw gebruikt ══ -->
+<svg class="figuren" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="fig-ster" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 .6 14.15 8.28 21.87 6.3 16.3 12l5.57 5.7-7.72-1.98L12 23.4l-2.15-7.68L2.13 17.7 7.7 12 2.13 6.3l7.72 1.98Z"/>
+    </symbol>
+    <symbol id="fig-sprankel" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 .5l1.76 7.25L20.13 3.87 16.25 10.24 23.5 12l-7.25 1.76 3.88 6.37-6.37-3.88L12 23.5l-1.76-7.25-6.37 3.88 3.88-6.37L.5 12l7.25-1.76L3.87 3.87l6.37 3.88Z"/>
+    </symbol>
+    <symbol id="fig-hart" viewBox="0 0 24 22">
+      <path fill="currentColor" d="M12 21.5S1.5 14.6 1.5 7.9A5.9 5.9 0 0 1 12 4.3 5.9 5.9 0 0 1 22.5 7.9c0 6.7-10.5 13.6-10.5 13.6Z"/>
+    </symbol>
+    <symbol id="fig-golf" viewBox="0 0 312 168">
+      <path fill="none" stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"
+            d="M20 43C42 29 54 20 80 20C106 20 126 88 152 88C173 88 189 63 210 63C238 63 262 115 292 148"/>
+    </symbol>
+    <symbol id="fig-pop" viewBox="0 0 73 74">
+      <g fill="none" stroke="currentColor" stroke-width="9.5" stroke-linecap="round">
+        <path d="M4 35.2 17.3 4"/><path d="M29.7 44 53.4 22.6"/><path d="M44.9 70 69 63.5"/>
+      </g>
+    </symbol>
+    <symbol id="fig-stipjes" viewBox="0 0 24 8">
+      <g fill="currentColor"><circle cx="4" cy="4" r="2.6"/><circle cx="12" cy="4" r="2.6"/><circle cx="20" cy="4" r="2.6"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ══ HERO ══════════════════════════════════════════════ -->
+<header class="hero checker">
+  <div class="hero-inner">
+    <span class="trapje checker trapje--hero-links" aria-hidden="true"></span>
+    <span class="trapje checker trapje--hero-rechts trapje--rechtsboven" aria-hidden="true"></span>
+    <span class="trapje checker trapje--punt trapje--hero-midlinks" aria-hidden="true"></span>
+    <span class="trapje checker trapje--punt trapje--punt-rechts trapje--hero-midrechts" aria-hidden="true"></span>
+    <span class="trapje checker trapje--hero-rechtsonder trapje--rechtsonder" aria-hidden="true"></span>
+
+    <svg class="fig fig--ster navy fig-hero-ster" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-ster"/></svg>
+    <svg class="fig fig--sprankel roze fig-hero-sprankel" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>
+    <svg class="fig fig--golf roze fig-hero-golf" viewBox="0 0 312 168" aria-hidden="true"><use href="#fig-golf"/></svg>
+
+    <span class="kompas-doos">
+      <img class="kompas" src="img/kompas.png" alt="" width="720" height="877">
+      <svg class="fig fig--pop navy fig-kompas-pop" viewBox="0 0 73 74" aria-hidden="true"><use href="#fig-pop"/></svg>
+    </span>
+    <h1><img class="woordmerk" src="img/woordmerk.png" alt="Groeiwijs" width="1000" height="228"></h1>
+    <p class="lint">kinder-&amp; jongerencoaching<br>huiswerkbegeleiding</p>
+
+    <svg class="golfje" viewBox="0 0 88 12" fill="none" aria-hidden="true">
+      <path d="M2 7c4-6 8-6 12 0s8 6 12 0 8-6 12 0 8 6 12 0 8-6 12 0 8 6 12 0"
+            stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+
+    <p class="pay-off">Omdat ieder kind mag groeien op zijn of haar eigen manier.</p>
+
+
+    <p class="badge">
+      <span>Stap voor stap naar een sterkere jij!</span>
+      <svg class="hartje-badge" viewBox="0 0 24 22" aria-hidden="true"><use href="#fig-hart"/></svg>
+    </p>
+  </div>
+
+  <svg class="golfvorm" viewBox="0 0 200 130" aria-hidden="true">
+    <path fill="currentColor" d="M0 130V54C0 22 24 4 56 12C80 18 88 36 96 54C104 72 112 84 128 94C146 105 168 114 196 124L200 130Z"/>
+    <use href="#fig-hart" class="roze" width="24" height="22" transform="translate(16 76) scale(1.6)"/>
+    <use href="#fig-pop"  class="navy" width="73" height="74" transform="translate(104 14) scale(.52)"/>
+    <use href="#fig-hart" class="navy" width="24" height="22" transform="translate(158 6) rotate(8) scale(1.3)"/>
+  </svg>
+</header>
+
+<!-- ══ INTRO ═════════════════════════════════════════════ -->
+<section id="intro">
+  <span class="trapje checker trapje--intro trapje--rechtsonder" aria-hidden="true"></span>
+  <svg class="fig fig--sprankel roze fig--wijd fig-intro-sprankel" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>
+  <div class="wrap">
+    <p class="eyebrow">Welkom bij Groeiwijs</p>
+    <p class="lead">Heeft je kind wat extra ondersteuning nodig bij huiswerk, leren of plannen? Of merk je dat je kind ergens tegenaan loopt en niet goed weet hoe het verder moet?</p>
+    <p>Bij Groeiwijs kijken we samen naar wat jouw kind nodig heeft. Elk kind is anders en leert op zijn of haar eigen manier. Daarom stem ik de begeleiding af op het tempo, de noden en de mogelijkheden van jouw kind.</p>
+    <p>Soms lukt het even niet alleen. Soms heb je gewoon iemand nodig die even met je meeloopt, luistert, helpt en samen met jou zoekt naar wat werkt. Dat is waar Groeiwijs voor staat.</p>
+  </div>
+</section>
+
+<!-- ══ AANBOD ════════════════════════════════════════════ -->
+<section id="aanbod">
+  <svg class="fig fig--ster navy fig--wijd fig-aanbod-ster" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-ster"/></svg>
+  <svg class="fig fig--golf roze fig--wijd fig-aanbod-golf" viewBox="0 0 312 168" aria-hidden="true"><use href="#fig-golf"/></svg>
+  <div class="wrap">
+    <p class="eyebrow">Wat ik doe</p>
+    <h2>Twee manieren waarop ik meeloop</h2>
+
+    <div class="aanbod">
+
+      <article class="dienst dienst--huiswerk">
+        <span class="bolletje bolletje--red" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 6.5C10.5 5 8.5 4.5 5 4.5v13c3.5 0 5.5.5 7 2 1.5-1.5 3.5-2 7-2v-13c-3.5 0-5.5.5-7 2Z"/>
+            <path d="M12 6.5v13"/>
+          </svg>
+        </span>
+        <h3>Huiswerkbegeleiding<br>lager onderwijs</h3>
+        <div class="dienst-body">
+          <svg class="kronkel" viewBox="0 0 112 8" fill="none" aria-hidden="true">
+            <path d="M2 5c3.5-4.5 7-4.5 10.5 0s7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0"
+                  stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <p>De huiswerkbegeleiding is voor kinderen uit het lager onderwijs. We maken samen huiswerk en werken onder andere aan:</p>
+          <ul class="punten">
+            <li>leren plannen</li>
+            <li>leren leren</li>
+            <li>structuur en overzicht</li>
+            <li>taken en toetsen voorbereiden</li>
+            <li>zelfstandig leren werken</li>
+            <li>meer vertrouwen in zichzelf</li>
+          </ul>
+          <p class="zacht">Een sessie duurt meestal één uur, maar dat kan aangepast worden aan wat je kind nodig heeft en aankan.</p>
+          <p class="prijs">€&nbsp;40 <small>per uur</small></p>
+          <p class="zacht">De begeleiding duurt zolang als nodig is.</p>
+          <p class="zacht">Voor sommige kinderen zijn een paar keer voldoende. Andere kinderen hebben graag wat langer ondersteuning. We bekijken samen wat het beste past bij jouw kind.</p>
+        </div>
+      </article>
+
+      <article class="dienst dienst--coaching">
+        <span class="bolletje bolletje--navy" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20.8c-1.3-1-7.4-5-7.4-9.5a3.9 3.9 0 0 1 7.4-1.8 3.9 3.9 0 0 1 7.4 1.8c0 4.5-6.1 8.5-7.4 9.5Z" fill="currentColor" stroke="none"/>
+            <path d="M12 2.6v2.2M5.6 4.2l1.3 1.7M18.4 4.2l-1.3 1.7M2.8 9.2l2 .6M21.2 9.2l-2 .6"/>
+          </svg>
+        </span>
+        <h3>Kinder- &amp;<br>jongerencoaching</h3>
+        <div class="dienst-body">
+          <svg class="kronkel" viewBox="0 0 112 8" fill="none" aria-hidden="true">
+            <path d="M2 5c3.5-4.5 7-4.5 10.5 0s7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0"
+                  stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <p class="lead">Elk kind is uniek.</p>
+          <p>Soms is het even zoeken naar wat goed voelt en wat helpt.</p>
+          <p>Tijdens de coaching krijgt je kind de ruimte om zichzelf beter te leren kennen, gevoelens en situaties te begrijpen en te ontdekken wat het nodig heeft.</p>
+          <p>Samen gaan we ontdekken:</p>
+          <ul class="punten punten--sprankel">
+            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Wie ben ik?</li>
+            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Waar ben ik goed in?</li>
+            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Wat vind ik moeilijk?</li>
+            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Waar loop ik tegenaan?</li>
+            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Wat kan mij helpen?</li>
+          </ul>
+          <p>Samen ontdekken we wat jouw kind nodig heeft.</p>
+          <p>Geen vast stappenplan, maar begeleiding die aansluit bij wie jouw kind is en waar het mee zit.</p>
+          <p class="tussenkop">Het doel?</p>
+          <p>Je kind helpen groeien op een manier die past bij wie het is, zodat het zichzelf beter leert kennen en met meer vertrouwen en veerkracht kan omgaan met wat op zijn of haar pad komt.</p>
+          <blockquote class="citaat">
+            <p>&ldquo;Ik heb het nog nooit gedaan, dus ik denk dat ik het kan.&rdquo;</p>
+            <cite>Pippi Langkous</cite>
+          </blockquote>
+          <p class="zacht">Je hoeft niet alles al te kunnen. Je mag ontdekken, proberen en groeien.</p>
+          <p class="prijs">€&nbsp;65 <small>per uur</small></p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="spetter">
+      <div>
+        <p>Groeien doe je niet alleen.<br>Ik loop graag een stukje met je mee!</p>
+        <svg class="hartje" viewBox="0 0 24 22" fill="currentColor" aria-hidden="true">
+          <path d="M12 21.5S1.5 14.6 1.5 7.9A5.9 5.9 0 0 1 12 4.3 5.9 5.9 0 0 1 22.5 7.9c0 6.7-10.5 13.6-10.5 13.6Z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KENNISMAKEN ═══════════════════════════════════════ -->
+<section id="kennismaken">
+  <span class="trapje checker trapje--kennis" aria-hidden="true"></span>
+  <svg class="fig fig--hart rood fig--wijd fig-kennis-hart" viewBox="0 0 24 22" aria-hidden="true"><use href="#fig-hart"/></svg>
+  <div class="wrap">
+    <p class="eyebrow">Eerst even kennismaken?</p>
+    <h2>We starten altijd met een gratis en vrijblijvend kennismakingsgesprek</h2>
+
+    <div class="manieren">
+      <p class="manier">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8"/>
+        </svg>
+        Online
+      </p>
+      <p class="manier">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5.5 3.5h3l1.5 4-2 1.5a12.5 12.5 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3.5 5.7a2 2 0 0 1 2-2.2Z"/>
+        </svg>
+        Telefonisch
+      </p>
+      <p class="manier">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9.5v10h13v-10"/><path d="M10 19.5v-5h4v5"/>
+        </svg>
+        Bij mij thuis
+      </p>
+    </div>
+
+    <p>Tijdens dit gesprek maken we rustig kennis en kun je vertellen waar je je zorgen over maakt of waar je kind tegenaan loopt. Je hoeft niet alles al te weten of een duidelijke hulpvraag te hebben. We luisteren, denken mee en bekijken samen wat jouw kind nodig heeft. Voelt het goed? Dan spreken we af hoe we verder kunnen gaan.</p>
+
+    <p class="slot">Bij Groeiwijs hoeft een kind niet eerst vast te lopen om hulp te mogen vragen. Soms is een klein beetje extra ondersteuning net datgene wat nodig is om weer verder te kunnen.</p>
+  </div>
+</section>
+
+<!-- ══ CONTACT ═══════════════════════════════════════════ -->
+<div class="overgang checker" aria-hidden="true"></div>
+
+<section id="contact">
+  <svg class="fig fig--sprankel roze fig--wijd fig-contact-sprankel" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>
+  <svg class="fig roze fig--wijd fig-contact-stipjes" viewBox="0 0 24 8" aria-hidden="true"><use href="#fig-stipjes"/></svg>
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Caroline Reynders</h2>
+    <p>Heeft je kind of jongere wat extra ondersteuning nodig? Je bent van harte welkom bij Groeiwijs. Bel gerust of stuur een berichtje voor een gratis en vrijblijvend kennismakingsgesprek.</p>
+
+    <div class="gegevens">
+      <p class="gegeven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5.5 3.5h3l1.5 4-2 1.5a12.5 12.5 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3.5 5.7a2 2 0 0 1 2-2.2Z"/>
+        </svg>
+        <a href="tel:+32474418817">0474 41 88 17</a>
+      </p>
+      <p class="gegeven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/>
+        </svg>
+        <a href="mailto:reynders.caroline@telenet.be">reynders.caroline@telenet.be</a>
+      </p>
+      <p class="gegeven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 21.5c4-4.6 6.5-7.8 6.5-11a6.5 6.5 0 1 0-13 0c0 3.2 2.5 6.4 6.5 11Z"/><circle cx="12" cy="10.2" r="2.4"/>
+        </svg>
+        Locatie: Beringen
+      </p>
+    </div>
+
+    <div class="knoppen">
+      <a class="btn" href="tel:+32474418817">Bel Caroline</a>
+      <a class="btn btn--licht" href="mailto:reynders.caroline@telenet.be">Stuur een mail</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Groeiwijs &middot; kinder- &amp; jongerencoaching en huiswerkbegeleiding &middot; Beringen</p>
+  </div>
+</footer>
+
+<nav class="belbalk" aria-label="Snel contact">
+  <a class="btn" href="tel:+32474418817">Bel Caroline</a>
+  <a class="btn btn--licht" href="mailto:reynders.caroline@telenet.be">Mail</a>
+</nav>

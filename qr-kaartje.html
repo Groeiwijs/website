@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR-kaartje — Groeiwijs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
+<style>
+  /* Print dit op A4 en snijd de kaartjes uit: 4 stuks per blad. */
+  @page { size: A4; margin: 12mm; }
+  :root {
+    --navy: #0A40A0;
+    --navy-deep: #061D69;
+    --red: #E22123;
+    --pink: #F18FAE;
+    --pink-soft: #F9CFCE;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--navy-deep);
+    font-family: "Poppins", "Trebuchet MS", sans-serif;
+  }
+  /* een eigen container, zodat een browser-extensie die iets in <body>
+     injecteert de indeling van het vel niet overhoop gooit */
+  .vel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5mm;
+    padding: 4mm;
+  }
+  .kaartje {
+    background: #fff;
+    /* dambordrand zoals op de flyer */
+    background-image:
+      conic-gradient(var(--red) 25%, var(--pink-soft) 0 50%,
+                     var(--red) 0 75%, var(--pink-soft) 0);
+    background-size: 6mm 6mm;
+    padding: 3mm;
+    break-inside: avoid;
+  }
+  .binnen {
+    background: #fff;
+    padding: 6mm 5mm 5mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5mm;
+    text-align: center;
+  }
+  h2 {
+    font-size: 17pt;
+    font-weight: 800;
+    letter-spacing: .02em;
+    margin: 0;
+    color: var(--navy-deep);
+  }
+  .diensten {
+    background: var(--pink);
+    color: var(--navy-deep);
+    font-size: 8pt;
+    font-weight: 700;
+    line-height: 1.35;
+    padding: 1.6mm 4mm;
+    margin: 0;
+  }
+  img { width: 32mm; height: 32mm; }
+  .cta { font-size: 8pt; font-weight: 500; color: var(--navy); margin: 0; max-width: 24em; }
+  .contact { font-size: 8.5pt; font-weight: 700; color: var(--red); margin: 0; }
+  @media print { body { padding: 0; } }
+</style>
+</head>
+<body>
+<div class="vel">
+  <div class="kaartje"><div class="binnen">
+    <h2>GROEIWIJS</h2>
+    <p class="diensten">kinder-&amp; jongerencoaching<br>huiswerkbegeleiding</p>
+    <img src="qr.svg" alt="QR-code naar de website van Groeiwijs">
+    <p class="cta">Scan met de camera van je telefoon voor alle info en een gratis kennismakingsgesprek.</p>
+    <p class="contact">Caroline Reynders · 0474 41 88 17</p>
+  </div></div>
+  <div class="kaartje"><div class="binnen">
+    <h2>GROEIWIJS</h2>
+    <p class="diensten">kinder-&amp; jongerencoaching<br>huiswerkbegeleiding</p>
+    <img src="qr.svg" alt="QR-code naar de website van Groeiwijs">
+    <p class="cta">Scan met de camera van je telefoon voor alle info en een gratis kennismakingsgesprek.</p>
+    <p class="contact">Caroline Reynders · 0474 41 88 17</p>
+  </div></div>
+  <div class="kaartje"><div class="binnen">
+    <h2>GROEIWIJS</h2>
+    <p class="diensten">kinder-&amp; jongerencoaching<br>huiswerkbegeleiding</p>
+    <img src="qr.svg" alt="QR-code naar de website van Groeiwijs">
+    <p class="cta">Scan met de camera van je telefoon voor alle info en een gratis kennismakingsgesprek.</p>
+    <p class="contact">Caroline Reynders · 0474 41 88 17</p>
+  </div></div>
+  <div class="kaartje"><div class="binnen">
+    <h2>GROEIWIJS</h2>
+    <p class="diensten">kinder-&amp; jongerencoaching<br>huiswerkbegeleiding</p>
+    <img src="qr.svg" alt="QR-code naar de website van Groeiwijs">
+    <p class="cta">Scan met de camera van je telefoon voor alle info en een gratis kennismakingsgesprek.</p>
+    <p class="contact">Caroline Reynders · 0474 41 88 17</p>
+  </div></div>
+</div>
+</body>
+</html>
