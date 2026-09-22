@@ -239,6 +239,28 @@
   .citaat cite { font-style: normal; font-weight: 600; font-size: .9rem; color: var(--ink-soft); }
   .citaat cite::before { content: "— "; }
 
+  .prijzen { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+  /* een hartje middenin een zin, zoals in de tekst van Caroline */
+  .hartje-tekst {
+    display: inline-block;
+    width: .95em; height: auto;
+    margin-left: .2em;
+    vertical-align: -.08em;
+    color: var(--red);
+  }
+
+  /* ── Even voorstellen, bovenaan het welkom ───────────── */
+  .over-mij {
+    background: var(--paper);
+    border-radius: 1.25rem;
+    padding: 1.35rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+  }
+  .over-mij .rol { font-weight: 700; font-size: .95rem; color: var(--red); }
+
   .prijs {
     display: inline-flex;
     align-items: baseline;
@@ -533,6 +555,13 @@
   <div class="wrap">
     <p class="eyebrow">Welkom bij Groeiwijs</p>
     <p class="lead">Heeft je kind wat extra ondersteuning nodig bij huiswerk, leren of plannen? Of merk je dat je kind ergens tegenaan loopt en niet goed weet hoe het verder moet?</p>
+
+    <div class="over-mij">
+      <p class="tussenkop">Welkom!</p>
+      <p class="rol">Caroline &middot; Leerkracht Buitengewoon Onderwijs &amp; Kindercoach</p>
+      <p>Met meer dan 25 jaar onderwijservaring, een getuigschrift als kinder- en gezinscoach én mijn ervaring als mama van drie jongvolwassenen, ben ik er om samen op weg te gaan.<svg class="hartje-tekst" viewBox="0 0 24 22" aria-hidden="true"><use href="#fig-hart"/></svg></p>
+    </div>
+
     <p>Bij Groeiwijs kijken we samen naar wat jouw kind nodig heeft. Elk kind is anders en leert op zijn of haar eigen manier. Daarom stem ik de begeleiding af op het tempo, de noden en de mogelijkheden van jouw kind.</p>
     <p>Soms lukt het even niet alleen. Soms heb je gewoon iemand nodig die even met je meeloopt, luistert, helpt en samen met jou zoekt naar wat werkt. Dat is waar Groeiwijs voor staat.</p>
   </div>
@@ -590,27 +619,30 @@
             <path d="M2 5c3.5-4.5 7-4.5 10.5 0s7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0 7 4.5 10.5 0 7-4.5 10.5 0"
                   stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
           </svg>
-          <p class="lead">Elk kind is uniek.</p>
-          <p>Soms is het even zoeken naar wat goed voelt en wat helpt.</p>
-          <p>Tijdens de coaching krijgt je kind de ruimte om zichzelf beter te leren kennen, gevoelens en situaties te begrijpen en te ontdekken wat het nodig heeft.</p>
-          <p>Samen gaan we ontdekken:</p>
+          <p class="tussenkop">Waar kunnen we samen aan werken?</p>
           <ul class="punten punten--sprankel">
-            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Wie ben ik?</li>
-            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Waar ben ik goed in?</li>
-            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Wat vind ik moeilijk?</li>
-            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Waar loop ik tegenaan?</li>
-            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg>Wat kan mij helpen?</li>
+            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg><span><strong>Zelfvertrouwen &amp; veerkracht</strong><span class="zacht"> — faalangst, onzekerheid, kwaliteiten ontdekken</span></span></li>
+            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg><span><strong>Emoties &amp; stress</strong><span class="zacht"> — spanning, omgaan met moeilijke situaties</span></span></li>
+            <li><svg class="sprankeltje" viewBox="0 0 24 24" aria-hidden="true"><use href="#fig-sprankel"/></svg><span><strong>Sociaal &amp; school</strong><span class="zacht"> — vriendschappen, grenzen aangeven, schoolse moeilijkheden</span></span></li>
           </ul>
-          <p>Samen ontdekken we wat jouw kind nodig heeft.</p>
-          <p>Geen vast stappenplan, maar begeleiding die aansluit bij wie jouw kind is en waar het mee zit.</p>
-          <p class="tussenkop">Het doel?</p>
-          <p>Je kind helpen groeien op een manier die past bij wie het is, zodat het zichzelf beter leert kennen en met meer vertrouwen en veerkracht kan omgaan met wat op zijn of haar pad komt.</p>
+
+          <p class="tussenkop">Hoe werk ik?</p>
+          <p>Geen vast stappenplan, maar begeleiding op maat van jouw kind.</p>
+          <p>We hoeven niet alleen te praten. Met spel, creativiteit, beweging en eenvoudige oefeningen maken we op een laagdrempelige manier ruimte om gevoelens te begrijpen, krachten te ontdekken en te groeien.</p>
+
           <blockquote class="citaat">
-            <p>&ldquo;Ik heb het nog nooit gedaan, dus ik denk dat ik het kan.&rdquo;</p>
+            <p>&ldquo;Ik heb het nog nooit gedaan, dus ik denk dat ik het kan!&rdquo;</p>
             <cite>Pippi Langkous</cite>
           </blockquote>
-          <p class="zacht">Je hoeft niet alles al te kunnen. Je mag ontdekken, proberen en groeien.</p>
-          <p class="prijs">€&nbsp;65 <small>per uur</small></p>
+
+          <p class="tussenkop">Vrijblijvende kennismaking</p>
+          <p>De eerste stap is altijd gratis en zonder verplichtingen. Ik luister naar jullie verhaal en samen kijken we wat jouw kind nodig heeft om weer te bloeien.<svg class="hartje-tekst" viewBox="0 0 24 22" aria-hidden="true"><use href="#fig-hart"/></svg></p>
+          <div class="prijzen">
+            <p class="prijs">€&nbsp;30 <small>30 min.</small></p>
+            <p class="prijs">€&nbsp;45 <small>45 min.</small></p>
+            <p class="prijs">€&nbsp;60 <small>60 min.</small></p>
+          </div>
+          <p class="zacht">Je hoeft niet alles al te kunnen. Je mag ontdekken, proberen en groeien.<svg class="hartje-tekst" viewBox="0 0 24 22" aria-hidden="true"><use href="#fig-hart"/></svg></p>
         </div>
       </article>
 
