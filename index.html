@@ -263,11 +263,48 @@
     background: var(--paper);
     border-radius: 1.25rem;
     padding: 1.35rem 1.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: .55rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .55rem 1.35rem;
+    align-items: start;
+    overflow: hidden;
   }
   .over-mij .rol { font-weight: 700; font-size: .95rem; color: var(--red); }
+
+  /* de foto: een fijne blauwe cirkel, met achter de linkerbovenhoek
+     een trapje uit het dambord van de flyer */
+  .portret {
+    grid-row: span 3;
+    position: relative;
+    display: block;
+    width: clamp(6rem, 23vw, 8rem);
+    aspect-ratio: 1;
+  }
+  .portret::before {
+    content: "";
+    position: absolute;
+    left: -13%; top: -13%;
+    width: 60%; height: 60%;
+    background-image:
+      conic-gradient(var(--red) 25%, var(--pink-soft) 0 50%,
+                     var(--red) 0 75%, var(--pink-soft) 0);
+    background-size: 40% 40%;
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 80% 20%, 80% 40%, 60% 40%,
+                       60% 60%, 40% 60%, 40% 80%, 20% 80%, 20% 100%, 0 100%);
+  }
+  .portret img {
+    position: relative;
+    display: block;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 .4rem var(--paper), 0 0 0 calc(.4rem + 2px) var(--navy);
+  }
+  /* op een smalle telefoon komt de foto boven de tekst */
+  @media (max-width: 460px) {
+    .over-mij { grid-template-columns: 1fr; gap: .55rem; }
+    .portret { grid-row: auto; margin-bottom: .6rem; }
+  }
 
   .prijs {
     display: inline-flex;
@@ -566,6 +603,9 @@
     <p class="lead">Heeft je kind wat extra ondersteuning nodig bij huiswerk, leren of plannen? Of merk je dat je kind ergens tegenaan loopt en niet goed weet hoe het verder moet?</p>
 
     <div class="over-mij">
+      <span class="portret">
+        <img src="img/caroline.jpg" alt="Caroline Reynders" width="720" height="720" decoding="async">
+      </span>
       <p class="tussenkop">Welkom!</p>
       <p class="rol">Caroline &middot; Leerkracht Buitengewoon Onderwijs &amp; Kindercoach</p>
       <p>Met meer dan 25 jaar onderwijservaring, een getuigschrift als kinder- en gezinscoach én mijn ervaring als mama van drie jongvolwassenen, ben ik er om samen op weg te gaan.<svg class="hartje-tekst" viewBox="0 0 24 22" aria-hidden="true"><use href="#fig-hart"/></svg></p>
